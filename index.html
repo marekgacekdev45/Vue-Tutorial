@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <h1>Vue tutorial</h1>
+
+    <div id="app">
+
+<!--atribute binding-->
+<!-- <a v-bind:href="url" target="_blank">najlepsza strona w sieci</a> -->
+<a :href="url" target="_blank">najlepsza strona w sieci</a>
+
+        <div v-if="showBooks">
+            <!--całkowicie usuwa jeżeli false-->
+            <h2>{{title}}</h2>
+            <p>{{author}}</p>
+            <p>{{age}}</p>
+            
+        </div>
+        <button v-on:click="age--">Decrease age</button>
+        <button v-on:click="age++">Increase age</button>
+        <div @click="changeTitle('Tomek Sawyer i indianin')">zmień tytuł</div>
+
+        <button @click="toogleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else="!showBooks">Show Books</span>
+        </button>
+        <div>
+            <span v-show="showBooks">currently showing books</span>
+            <!--daje display none lepsza wydajność-->
+        </div>
+
+
+        <p>{{filteredBooks}}</p>
+        <ul>
+            <li v-for="book in books" :class="{fav:book.isFav}" @click="favToggle(book)">
+                <img :src="book.img" :alt="book.title">
+                <h3>{{book.title}}</h3>
+                <p>{{book.author}}</p>
+            </li>
+        </ul>
+        <br>
+        <!--mouse events-->
+        <div class="box" @mouseover="handleEvents">mouseover</div>
+        <div class="box" @mouseleave="handleEvents($event,5)">mouseleave</div>
+        <div class="box" @dblclick="handleEvents">double click</div>
+        <div class="box" @mousemove="handleMouseMove">{{x}} {{y}}</div>
+
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.box{
+    padding: 100px 0;
+    width: 400px;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    background-color: beige;
+}
+
+.fav{
+    color: rebeccapurple;
+    background-color: yellow;
+}
+
+img{
+    width: 100px;
+}
+
+p,h3,ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
